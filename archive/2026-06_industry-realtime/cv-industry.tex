@@ -1,0 +1,284 @@
+% ============================================================
+%  Mohammad VazirPanah -- Industry CV (Embedded / Real-Time, EU)
+% ============================================================
+
+\documentclass[10pt, a4paper]{article}
+
+% -- Encoding & font -------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% -- Page geometry ---------------------------------------------------
+\usepackage[
+  top    = 1.6cm,
+  bottom = 1.4cm,
+  left   = 1.8cm,
+  right  = 1.8cm
+]{geometry}
+
+% -- Colours ---------------------------------------------------------
+\usepackage[table]{xcolor}
+\definecolor{navy}{HTML}{1C3557}
+\definecolor{accent}{HTML}{2563A8}
+\definecolor{midtext}{HTML}{4A5568}
+\definecolor{lightbg}{HTML}{EEF2F7}
+\definecolor{hdrbg}{HTML}{DDE8F5}
+\definecolor{rulecol}{HTML}{CBD5E0}
+
+% -- Hyperlinks ------------------------------------------------------
+\usepackage[
+  colorlinks = true,
+  urlcolor   = accent,
+  linkcolor  = accent,
+  pdftitle   = {Mohammad VazirPanah -- CV},
+  pdfauthor  = {Mohammad VazirPanah}
+]{hyperref}
+\urlstyle{same}
+
+% -- Graphics & TikZ -------------------------------------------------
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% -- Tables ----------------------------------------------------------
+\usepackage{tabularx}
+\usepackage{array}
+
+% -- Lists -----------------------------------------------------------
+\usepackage{enumitem}
+\setlist[itemize]{
+  leftmargin = 1.3em,
+  itemsep    = 0.5pt,
+  topsep     = 1.8pt,
+  parsep     = 0pt,
+  label      = \textbullet
+}
+
+% -- Paragraph spacing -----------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=1em
+
+% -- Section headers -------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}[block]
+  {\normalfont\bfseries\fontsize{10}{13}\selectfont\color{navy}}
+  {}
+  {0pt}
+  {\tikz[baseline=1.5pt,inner sep=0pt]{\fill[accent](0,0)rectangle(3pt,10pt);}\hspace{6pt}}
+  [\vspace{-9pt}{\color{rulecol}\rule{\linewidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+\newcommand{\firstsection}[1]{\section{#1}}
+
+% -- Footer ----------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[navy](current page.south west)
+      rectangle($(current page.south east)+(0,3pt)$);
+  \end{tikzpicture}%
+  \textcolor{midtext}{\scriptsize Page \thepage}%
+}
+\setlength{\footskip}{20pt}
+
+% -- Full-bleed header (no photo) -----------------------------------
+\usepackage{eso-pic}
+
+\newlength{\hdrH}   \setlength{\hdrH}{3.55cm}
+\newlength{\padX}   \setlength{\padX}{1.8cm}
+
+\AddToShipoutPictureFG*{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[hdrbg]
+      (current page.north west)
+      rectangle
+      ($(current page.north east)+(0,-\hdrH)$);
+
+    \fill[navy]
+      (current page.north west)
+      rectangle
+      ($(current page.north east)+(0,-4pt)$);
+
+    \draw[navy, line width=1.8pt]
+      ($(current page.north west)+(0,-\hdrH)$) --
+      ($(current page.north east)+(0,-\hdrH)$);
+
+    \node[
+      anchor    = north west,
+      inner sep = 10pt,
+      text width= \dimexpr\paperwidth - 2\padX\relax
+    ] at ($(current page.north west)+(\padX, -4pt-0.16cm)$) {%
+      {\fontsize{22}{26}\selectfont\bfseries\color{navy}
+        Mohammad VazirPanah}\\[3pt]
+      {\fontsize{10}{13}\selectfont\itshape\color{accent}
+        Embedded \& Real-Time Systems Engineer}\\[5pt]
+      {\color{rulecol}\rule{\linewidth}{0.4pt}}\\[5pt]
+      {\fontsize{8.8}{13}\selectfont\color{midtext}
+        Fisciano (SA), Italy
+        \,\textperiodcentered\,
+        \href{tel:+393896646511}{(+39) 389\,664\,6511}
+        \,\textperiodcentered\,
+        \href{mailto:mohammad.vazirpanah@gmail.com}{mohammad.vazirpanah@gmail.com}}\\[3pt]
+      {\fontsize{8.8}{13}\selectfont\color{accent}
+        \href{https://www.linkedin.com/in/mohammadvazirpanah}{LinkedIn}
+        \,\textperiodcentered\,
+        \href{https://mohammadvazirpanah.github.io/}{Website}
+        \,\textperiodcentered\,
+        \href{https://github.com/mohammadvazirpanah}{GitHub}}%
+    };
+  \end{tikzpicture}%
+}
+
+% -- Helpers ---------------------------------------------------------
+\newcommand{\IfNonEmptyTF}[3]{%
+  \if\relax\detokenize{#1}\relax
+    #3%
+  \else
+    #2%
+  \fi
+}
+
+\newcommand{\cventry}[4]{%
+  \IfNonEmptyTF{#1}{%
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}p{3.15cm}@{}}
+      \textbf{#2} & {\itshape\small\textcolor{accent}{#1}} \\
+    \end{tabularx}\par%
+  }{%
+    \textbf{#2}\par
+  }%
+  \IfNonEmptyTF{#3}{%
+    \vspace{1pt}{\itshape\textcolor{midtext}{#3}}\par
+  }{}%
+  \IfNonEmptyTF{#4}{%
+    \vspace{2pt}%
+    \begin{itemize}
+      #4
+    \end{itemize}
+  }{}%
+  \vspace{5pt}%
+}
+
+\newenvironment{shadedtable}[1]{%
+  \vspace{2pt}%
+  \rowcolors{1}{white}{lightbg}%
+  \tabularx{\linewidth}{#1}%
+}{%
+  \endtabularx
+  \rowcolors{1}{}{}%
+  \vspace{4pt}%
+}
+
+% ============================================================
+\begin{document}
+\vspace*{1.7cm}
+% ============================================================
+
+\firstsection{Summary}
+
+Embedded and real-time systems engineer with a research background in heterogeneous and RISC-V
+architectures. Hands-on with C/C++ across embedded CPUs, GPUs, and FPGAs; real-time software
+(FreeRTOS); hardware/software co-design; and compiler and performance evaluation, supported by
+reproducible Linux toolchains (Git, Docker, CI, CMake) and IEEE/ACM publications.
+
+\section{Technical Skills}
+
+\begin{shadedtable}{@{}>{\bfseries\raggedright\arraybackslash}p{4.3cm} X@{}}
+  Programming & C, C++, Python, Assembly \\
+  Embedded \& Real-Time & FreeRTOS, RISC-V, FPGA, VHDL, Verilog \\
+  Parallel \& Heterogeneous & SYCL, OpenMP, OpenCL, CUDA \\
+  Modeling \& Verification & SystemC, NuSMV, UPPAAL \\
+  Simulation \& EDA & Gem5, QEMU, OVPsim, Quartus, ModelSim, MATLAB-Simulink \\
+  Tools \& DevOps & Git, Docker, Linux, CMake, CI \\
+  Robotics & ROS, Gazebo, sensor integration \\
+  Certifications & TinyML --- \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{Harvard University, edX} \\
+\end{shadedtable}
+
+\section{Professional Experience}
+
+\cventry{2023 -- 2026}
+  {Research Fellow}
+  {University of Salerno --- ISISLab, Salerno, Italy}
+  {
+    \item Developed and deployed portable real-time applications across heterogeneous embedded CPU/GPU/RISC-V platforms (C/C++, SYCL, OpenMP, OpenCL) in the EU-funded LibreRT project
+    \item Benchmarked GCC, LLVM, and LLVM-EPI auto-vectorization on RISC-V vector hardware across 151 TSVC loops and seven real-world applications; characterized per-pattern compiler limitations and showed LMUL tuning yields up to 3$\times$ speedup (IEEE PDP 2025, 2nd author)
+    \item Performed bring-up and evaluation of RISC-V/SoC boards; built reproducible build and test pipelines with Git, Docker, CI, and CMake on Linux
+    \item Carried out hardware/software co-design and performance analysis across embedded and HPC targets
+  }
+
+\section{Selected Projects}
+
+\cventry{2019}
+  {FIR Filter \& Tiny YOLO v1 on FPGA}
+  {M.Sc. System-on-Chip --- DE0-Nano / DE10 Intel FPGA}
+  {
+    \item Implemented a FIR filter IP core in Quartus with an Avalon-MM interface
+    \item Deployed a real-time Tiny YOLO v1 (CNN) object-detection inference pipeline on FPGA under tight resource constraints
+  }
+
+\cventry{2022}
+  {Self-Aware CPS Modeling Framework}
+  {M.Sc. Thesis --- ForSyDe-SystemC, ROS/Gazebo co-simulation}
+  {
+    \item Built a self-aware cyber-physical system model and contributed extensions to the ForSyDe-SystemC library
+  }
+
+\cventry{2020}
+  {Railroad Control System Verification}
+  {M.Sc. Project --- NuSMV}
+  {
+    \item Modeled and formally verified safety and liveness properties of a railroad control system via model checking
+  }
+
+\cventry{2025}
+  {RISC-V Benchmark Suite}
+  {\href{https://github.com/unisa-hpc/RISCV-bench}{Open-source, GitHub}}
+  {
+    \item Implemented an open-source RISC-V/RVV benchmark suite and evaluated GCC/LLVM auto-vectorization across compiler versions
+  }
+
+\section{Education}
+
+\cventry{2019 -- 2022}
+  {M.Sc. Computer Engineering --- Computer Systems Architecture}
+  {Shahid Beheshti University, Tehran, Iran}
+  {
+    \item GPA 3.79\,/\,4.00 \,\textperiodcentered\, Thesis: \textit{Modeling Self-Aware Cyber-Physical Systems with SystemC}
+  }
+
+\cventry{2012 -- 2016}
+  {B.Sc. Computer Engineering --- Hardware Engineering}
+  {Birjand University, Birjand, Iran}
+  {
+    \item GPA 3.40\,/\,4.00
+  }
+
+\section{Selected Publications}
+
+\begin{itemize}
+  \item L. Carpentieri, \textbf{M. VazirPanah}, B. Cosenza. \textit{A Performance Analysis of Autovectorization on RVV RISC-V Boards.} IEEE PDP 2025.
+  \item B. Cosenza et al. (incl. \textbf{M. VazirPanah}). \textit{LibreRT: Portable Heterogeneous Real-Time Programming for the Embedded Computing Continuum.} ACM Computing Frontiers 2026.
+  \item \textbf{M. VazirPanah}, S.-H. Attarzadeh-Niaki, A. Salimi-Badr. \textit{ROS-Based Co-Simulation for Formal Cyber-Physical Robotic System Design.} IEEE CSICC 2022.
+  \item S.-H. Attarzadeh-Niaki, \textbf{M. VazirPanah}. \textit{System-Level Modeling of Dynamic Applications with Scenario-Aware Dataflow Graphs.} JICSE 2023.
+\end{itemize}
+
+\section{Honours}
+
+\begin{itemize}
+  \item National R\&D Research Grant Winner --- MCI R\&D Center, Iran (2020)
+  \item Top 15\% B.Sc. Computer Engineering --- Birjand University (2016)
+\end{itemize}
+
+\section{Languages}
+
+Persian (Native) \,\textperiodcentered\, English (Proficient) \,\textperiodcentered\, Italian (Basic)
+
+\vspace{6pt}
+{\footnotesize\color{midtext}References available on request.}
+
+\end{document}

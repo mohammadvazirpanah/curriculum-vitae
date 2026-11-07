@@ -1,0 +1,226 @@
+% ============================================================
+%  Mohammad Vazir Panah, Industry CV: HPC / Performance Engineering
+%  Compile with: pdflatex (run twice for the header)
+% ============================================================
+
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[top=1.6cm, bottom=1.4cm, left=1.8cm, right=1.8cm]{geometry}
+
+\usepackage[table]{xcolor}
+\definecolor{navy}{HTML}{1C3557}
+\definecolor{accent}{HTML}{2563A8}
+\definecolor{midtext}{HTML}{4A5568}
+\definecolor{lightbg}{HTML}{EEF2F7}
+\definecolor{hdrbg}{HTML}{DDE8F5}
+\definecolor{rulecol}{HTML}{CBD5E0}
+
+\usepackage[colorlinks=true, urlcolor=accent, linkcolor=accent,
+  pdftitle={Mohammad Vazir Panah CV HPC}, pdfauthor={Mohammad Vazir Panah}]{hyperref}
+\urlstyle{same}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tabularx}
+\usepackage{array}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.3em, itemsep=0.5pt, topsep=1.8pt, parsep=0pt, label=\textbullet}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=1em
+
+\usepackage{titlesec}
+\titleformat{\section}[block]
+  {\normalfont\bfseries\fontsize{10}{13}\selectfont\color{navy}}
+  {}{0pt}
+  {\tikz[baseline=1.5pt,inner sep=0pt]{\fill[accent](0,0)rectangle(3pt,10pt);}\hspace{6pt}}
+  [\vspace{-9pt}{\color{rulecol}\rule{\linewidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[navy](current page.south west) rectangle($(current page.south east)+(0,3pt)$);
+  \end{tikzpicture}%
+  \textcolor{midtext}{\scriptsize Page \thepage}}
+\setlength{\footskip}{20pt}
+
+\usepackage{eso-pic}
+\newlength{\hdrH} \setlength{\hdrH}{3.55cm}
+\newlength{\padX} \setlength{\padX}{1.8cm}
+
+\AddToShipoutPictureFG*{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[hdrbg] (current page.north west) rectangle ($(current page.north east)+(0,-\hdrH)$);
+    \fill[navy] (current page.north west) rectangle ($(current page.north east)+(0,-4pt)$);
+    \draw[navy, line width=1.8pt]
+      ($(current page.north west)+(0,-\hdrH)$) -- ($(current page.north east)+(0,-\hdrH)$);
+    \node[anchor=north west, inner sep=10pt, text width=\dimexpr\paperwidth-2\padX\relax]
+      at ($(current page.north west)+(\padX,-4pt-0.16cm)$) {%
+      {\fontsize{22}{26}\selectfont\bfseries\color{navy} Mohammad Vazir Panah}\\[3pt]
+      {\fontsize{10}{13}\selectfont\itshape\color{accent}
+        HPC \& Performance Software Engineer \,\textperiodcentered\, C++, SYCL, Compilers}\\[5pt]
+      {\color{rulecol}\rule{\linewidth}{0.4pt}}\\[5pt]
+      {\fontsize{8.8}{13}\selectfont\color{midtext}
+        Fisciano (SA), Italy
+        \,\textperiodcentered\, \href{tel:+393896646511}{(+39) 389\,664\,6511}
+        \,\textperiodcentered\, \href{mailto:mohammad.vazirpanah@gmail.com}{mohammad.vazirpanah@gmail.com}}\\[3pt]
+      {\fontsize{8.8}{13}\selectfont\color{accent}
+        \href{https://www.linkedin.com/in/mohammadvazirpanah}{LinkedIn}
+        \,\textperiodcentered\, \href{https://github.com/mohammadvazirpanah}{GitHub}
+        \,\textperiodcentered\, \href{https://mohammadvazirpanah.github.io/}{Website}}%
+    };
+  \end{tikzpicture}}
+
+\newcommand{\IfNonEmptyTF}[3]{\if\relax\detokenize{#1}\relax #3\else #2\fi}
+\newcommand{\cventry}[4]{%
+  \IfNonEmptyTF{#1}{%
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}p{3.15cm}@{}}
+      \textbf{#2} & {\itshape\small\textcolor{accent}{#1}} \\
+    \end{tabularx}\par}{\textbf{#2}\par}%
+  \IfNonEmptyTF{#3}{\vspace{1pt}{\itshape\textcolor{midtext}{#3}}\par}{}%
+  \IfNonEmptyTF{#4}{\vspace{2pt}\begin{itemize}#4\end{itemize}}{}%
+  \vspace{5pt}}
+
+\newenvironment{shadedtable}[1]{\vspace{2pt}\rowcolors{1}{white}{lightbg}\tabularx{\linewidth}{#1}}
+  {\endtabularx\rowcolors{1}{}{}\vspace{4pt}}
+
+% ============================================================
+\begin{document}
+\vspace*{1.7cm}
+
+\section{Summary}
+
+Software engineer focused on performance on parallel and heterogeneous hardware, with an M.Sc.\ in
+Computer Systems Architecture and three years of R\&D in the HPC group at ISISLab, University of
+Salerno. Experienced in C/C++, SYCL, OpenMP, OpenCL and CUDA, and in compiler-level work with GCC and
+LLVM on RISC-V vector processors. Used to systematic benchmarking, performance analysis and
+reproducible workflows (Git, Docker, CI, CMake).
+
+\section{Technical Skills}
+
+\begin{shadedtable}{@{}>{\bfseries\raggedright\arraybackslash}p{4.3cm} X@{}}
+  Programming & C, C++ (templates, modern C++), Python, Assembly \\
+  Parallel Programming & SYCL (AdaptiveCPP), OpenMP (including SIMD), OpenCL, CUDA, SIMD intrinsics \\
+  Compilers & GCC, LLVM/Clang, auto-vectorization analysis, RISC-V Vector extension (RVV 0.7 and 1.0) \\
+  Architectures & RISC-V, multicore CPUs, embedded GPUs (Imagination PowerVR), FPGA \\
+  Performance Work & Benchmarking, performance portability, performance analysis on real hardware \\
+  Simulation \& Modeling & Gem5, QEMU, SystemC \\
+  Tools & Git, Docker, CI, CMake, Linux \\
+  Certification & \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{TinyML, Harvard University (edX)} \\
+\end{shadedtable}
+
+\section{Professional Experience}
+
+\cventry{2023 - 2026}
+  {Research Fellow, HPC Group (ISISLab)}
+  {University of Salerno, Department of Computer Science, Salerno, Italy}
+  {
+    \item Co-developed an open-source RISC-V benchmark suite (151 TSVC loops and 7 real-world applications, RVV 0.7 and 1.0) and benchmarked GCC, LLVM and LLVM-EPI auto-vectorization on two RISC-V vector boards (AllWinner D1, BananaPi-F3); showed that LMUL tuning gives up to 3$\times$ speedup (IEEE PDP 2025)
+    \item Worked on performance-portable SYCL programming (AdaptiveCPP) across embedded CPUs and GPUs in the \href{https://librert.di.unisa.it/}{LibreRT} project; co-author of the system paper (ACM Computing Frontiers 2026)
+    \item Debugged kernel dispatch failures on Imagination PowerVR GPUs down to the LLVM-based AdaptiveCPP runtime and fixed the kernel lookup logic; resolved related OpenCL build problems
+    \item Implemented and evaluated applications with SYCL, OpenMP and OpenCL on heterogeneous CPU/GPU platforms
+    \item Set up RISC-V toolchains and software stacks on physical boards for the EuroHPC LIGATE project
+    \item Built reproducible benchmarking pipelines with Git, Docker, CI and CMake
+  }
+
+\cventry{2020 - 2021}
+  {Teaching Assistant}
+  {Shahid Beheshti University, Tehran, Iran}
+  {
+    \item Advanced Computer Architecture, System-on-Chip, Design \& Analysis of Real-Time Embedded Systems
+    \item Ran student projects from environment setup to lab sessions, feedback and grading
+  }
+
+\cventry{2013 - 2015}
+  {C++ Instructor}
+  {Sepehr Educational Institutions, Kashmar, Iran}
+  {
+    \item Taught C++ programming courses
+  }
+
+\section{Selected Projects}
+
+\cventry{2024 - 2025}
+  {RISC-V Vector Benchmark Suite}
+  {C, GCC, LLVM, \href{https://github.com/unisa-hpc/RISCV-bench}{GitHub}}
+  {
+    \item Benchmark suite covering many data-level-parallelism patterns, used to compare compiler versions and find where auto-vectorization fails
+  }
+
+\cventry{2023 - 2026}
+  {LibreRT, Portable Real-Time Programming for Heterogeneous Platforms}
+  {C++, SYCL, OpenMP, OpenCL, \href{https://librert.di.unisa.it/}{Project page}}
+  {
+    \item Portable real-time programming stack for platforms from microcontrollers to edge devices with embedded GPUs
+  }
+
+\cventry{2020}
+  {Parallel Sorting and Matrix Multiplication Architectures}
+  {Verilog and CUDA, \href{https://github.com/mohammadvazirpanah/parallel-sorting-matmul-architectures}{GitHub}}
+  {
+    \item Designed mesh- and hypercube-connected sorting networks in hardware, with a CUDA implementation of the hypercube version
+    \item Designed a shared-memory matrix multiplication architecture on a multistage interconnection network
+  }
+
+\cventry{2022}
+  {SADF Model of Computation in ForSyDe-SystemC (M.Sc. Thesis)}
+  {C++ and SystemC, \href{https://github.com/mohammadvazirpanah/ForSyDe-SystemC/tree/sadf-dstarlite-ros}{GitHub}}
+  {
+    \item Implemented the Scenario-Aware Dataflow model with C++ template metaprogramming; the core process constructors were merged into the official ForSyDe-SystemC repository
+  }
+
+\cventry{2019}
+  {Real-Time Tiny YOLO Inference on FPGA}
+  {Intel DE10-Nano-SoC, \href{https://github.com/mohammadvazirpanah/tiny-yolo-fpga-fixed-point}{GitHub}}
+  {
+    \item Fixed-point CNN inference pipeline on FPGA under tight resource limits
+  }
+
+\section{Education}
+
+\cventry{2019 - 2022}
+  {M.Sc.\ Computer Engineering, Computer Systems Architecture}
+  {Shahid Beheshti University, Tehran, Iran}
+  {\item GPA 18.43/20 \,\textperiodcentered\, Courses include Advanced Computer Architecture, Parallel Systems Architecture, Interconnection Networks}
+
+\cventry{2012 - 2016}
+  {B.Sc.\ Computer Engineering, Hardware Engineering}
+  {Birjand University, Birjand, Iran}
+  {\item GPA 16/20 \,\textperiodcentered\, Top 15\% of Computer Engineering graduates}
+
+\section{Publications}
+
+\begin{itemize}
+  \item L.\ Carpentieri, \textbf{M.\ Vazir Panah}, B.\ Cosenza. \textit{A Performance Analysis of Autovectorization on RVV RISC-V Boards.} IEEE PDP 2025.
+  \item B.\ Cosenza et al.\ (incl.\ \textbf{M.\ Vazir Panah}). \textit{LibreRT: Portable Heterogeneous Real-Time Programming for the Embedded Computing Continuum.} ACM Computing Frontiers 2026.
+  \item S.-H.\ Attarzadeh-Niaki, \textbf{M.\ Vazir Panah}. \textit{System-Level Modeling of Dynamic Applications with Scenario-Aware Dataflow Graphs.} JICSE 2023.
+  \item \textbf{M.\ Vazir Panah}, S.-H.\ Attarzadeh-Niaki, A.\ Salimi-Badr. \textit{ROS-Based Co-Simulation for Formal Cyber-Physical Robotic System Design.} IEEE CSICC 2022.
+\end{itemize}
+
+\section{Awards}
+
+\begin{itemize}
+  \item National R\&D Research Grant, Mobile Telecommunication Company of Iran (2020), awarded in competition with Master's and PhD students
+\end{itemize}
+
+\section{Languages}
+
+Persian (native) \,\textperiodcentered\, English (C1) \,\textperiodcentered\, Italian (B1 listening, A2 speaking and writing)
+
+\vspace{6pt}
+{\footnotesize\color{midtext}References available on request.}
+
+\end{document}

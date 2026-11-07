@@ -9,3 +9,8 @@
 *.fdb_latexmk
 *.bbl
 *.blg
+
+# Private: kept on this computer only, never pushed to the public repo
+academic-with-transcript/
+archive/2026-07_academic-with-transcripts/
+.claude/
