@@ -37,6 +37,8 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \emergencystretch=1em
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 \usepackage{titlesec}
 \titleformat{\section}[block]
@@ -71,10 +73,10 @@
       at ($(current page.north west)+(\padX,-4pt-0.16cm)$) {%
       {\fontsize{22}{26}\selectfont\bfseries\color{navy} Mohammad Vazir Panah}\\[3pt]
       {\fontsize{10}{13}\selectfont\itshape\color{accent}
-        Embedded Systems Engineer \,\textperiodcentered\, FPGA, RISC-V, C/C++}\\[5pt]
+        Embedded Systems Engineer \,\textperiodcentered\, Embedded Linux, RISC-V, FPGA, C/C++}\\[5pt]
       {\color{rulecol}\rule{\linewidth}{0.4pt}}\\[5pt]
       {\fontsize{8.8}{13}\selectfont\color{midtext}
-        Fisciano (SA), Italy
+        Fisciano (SA), Italy (permitted to work in Italy)
         \,\textperiodcentered\, \href{tel:+393896646511}{(+39) 389\,664\,6511}
         \,\textperiodcentered\, \href{mailto:mohammad.vazirpanah@gmail.com}{mohammad.vazirpanah@gmail.com}}\\[3pt]
       {\fontsize{8.8}{13}\selectfont\color{accent}
@@ -104,22 +106,24 @@
 \section{Summary}
 
 Embedded systems engineer with an M.Sc.\ in Computer Systems Architecture and three years of R\&D
-experience on RISC-V and heterogeneous embedded platforms. I work across the hardware and software
-boundary: C/C++ on embedded CPUs and GPUs, FPGA design in VHDL and Verilog, board bring-up and
-toolchains. Used to reproducible engineering workflows (Git, Docker, CI, CMake) and to working in
-international project teams.
+on RISC-V and heterogeneous embedded platforms in two multi-partner projects (EuroHPC LIGATE, PRIN LibreRT).
+I work across the hardware and software boundary: embedded C/C++ and Embedded Linux on RISC-V boards,
+board bring-up and cross-compilation toolchains, debugging down to the runtime and compiler level, and
+FPGA design in VHDL and Verilog. Used to reproducible workflows (Git, Docker, CI, CMake) and to
+international teams.
 
 \section{Technical Skills}
 
-\begin{shadedtable}{@{}>{\bfseries\raggedright\arraybackslash}p{4.3cm} X@{}}
-  Programming & C, C++, Python, Assembly \\
-  Embedded \& Hardware & RISC-V, FPGA (Intel DE0-Nano, DE10-Nano-SoC), microcontroller and SoC architecture, FreeRTOS \\
-  Digital Design & VHDL, Verilog, Quartus, ModelSim, Avalon-MM, high-level synthesis (basic) \\
+\begin{shadedtable}{@{}>{\bfseries\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}X@{}}
+  Programming & C, C++ (modern C++, templates), Python, Assembly \\
+  Embedded Software & Embedded Linux, FreeRTOS, RISC-V boards (AllWinner D1, BananaPi-F3), board bring-up, SoC architecture \\
+  Interfaces \& Debug & UART, SPI, I2C, JTAG, GDB, low-level runtime debugging \\
+  Toolchains \& Build & GCC, LLVM/Clang, RISC-V cross-compilation toolchains, CMake \\
+  FPGA \& Digital Design & VHDL, Verilog, Intel FPGA (DE0-Nano, DE10-Nano-SoC), Quartus, ModelSim, Avalon-MM, high-level synthesis (basic) \\
   Hardware Test & Design for test: full-scan, ATPG, BIST, fault simulation \\
-  Toolchains \& Debug & GCC, LLVM/Clang, RISC-V cross-compilation toolchains, low-level runtime debugging \\
-  Simulation \& Modeling & SystemC, Gem5, QEMU, OVPsim, MATLAB/Simulink \\
   Parallel \& Heterogeneous & OpenMP, OpenCL, SYCL, CUDA \\
-  Tools & Git, Docker, CI, CMake, Linux \\
+  Simulation \& Modeling & SystemC, Gem5, QEMU, OVPsim, MATLAB/Simulink \\
+  Tools & Git, Docker, CI, Linux \\
   Certification & \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{TinyML, Harvard University (edX)} \\
 \end{shadedtable}
 
@@ -129,10 +133,11 @@ international project teams.
   {Research Fellow, HPC Group (ISISLab)}
   {University of Salerno, Department of Computer Science, Salerno, Italy}
   {
-    \item Set up RISC-V toolchains, firmware and full embedded software stacks on physical boards in the EuroHPC LIGATE project, shared across several partner institutions
+    \item Set up RISC-V cross-compilation toolchains, firmware and Embedded Linux software stacks on physical boards in the EuroHPC \href{https://www.ligateproject.eu/}{LIGATE} project, shared across several partner institutions
     \item Brought up and evaluated RISC-V boards (AllWinner D1, BananaPi-F3) and embedded SoCs for benchmarking and real-time workloads
     \item Developed and deployed portable real-time applications in C/C++ on heterogeneous embedded CPU/GPU platforms (SYCL, OpenMP, OpenCL) in the \href{https://librert.di.unisa.it/}{LibreRT} project
     \item Found and fixed kernel dispatch failures on Imagination PowerVR embedded GPUs by tracing the issue into the LLVM-based AdaptiveCPP runtime; resolved related OpenCL build problems
+    \item Co-developed an open-source \href{https://github.com/unisa-hpc/RISCV-bench}{RISC-V benchmark suite} (151 loops and 7 real applications) to evaluate GCC and LLVM autovectorization on RISC-V vector hardware; tuning alone gave up to 3$\times$ speedup (IEEE PDP 2025)
     \item Built reproducible build and test pipelines (Git, Docker, CI, CMake) for RISC-V and SoC boards
   }
 
@@ -143,6 +148,11 @@ international project teams.
     \item System-on-Chip, Fundamentals of Embedded \& Real-Time Systems, Design \& Analysis of Real-Time Embedded Systems, Advanced Computer Architecture
     \item Ran student FPGA and embedded lab projects from environment setup to lab sessions, feedback and grading
   }
+
+\cventry{2016 - 2019}
+  {Mandatory Military Service}
+  {Iran}
+  {}
 
 \cventry{2013 - 2015}
   {C++ Instructor and Hardware Intern}
@@ -169,19 +179,19 @@ international project teams.
     \item Built LFSR/MISR-based BIST and LSSD boundary-scan self-test for the same design
   }
 
-\cventry{2020}
-  {Parallel Sorting and Matrix Multiplication Hardware}
-  {Verilog and CUDA, \href{https://github.com/mohammadvazirpanah/parallel-sorting-matmul-architectures}{GitHub}}
-  {
-    \item Designed mesh- and hypercube-connected sorting networks and a shared-memory matrix multiplication architecture in Verilog
-  }
-
 \cventry{2022}
   {SADF Model of Computation in ForSyDe-SystemC (M.Sc. Thesis)}
   {C++ and SystemC, \href{https://github.com/mohammadvazirpanah/ForSyDe-SystemC/tree/sadf-dstarlite-ros}{GitHub}}
   {
     \item Implemented the Scenario-Aware Dataflow model in C++ templates; the core process constructors were merged into the official ForSyDe-SystemC repository
     \item Connected the models to ROS and Gazebo to drive a simulated mobile robot in real time
+  }
+
+\cventry{2020}
+  {Parallel Sorting and Matrix Multiplication Hardware}
+  {Verilog and CUDA, \href{https://github.com/mohammadvazirpanah/parallel-sorting-matmul-architectures}{GitHub}}
+  {
+    \item Designed mesh- and hypercube-connected sorting networks and a shared-memory matrix multiplication architecture in Verilog
   }
 
 \cventry{2020}
