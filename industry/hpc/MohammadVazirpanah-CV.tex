@@ -58,8 +58,9 @@
 \setlength{\footskip}{20pt}
 
 \usepackage{eso-pic}
-\newlength{\hdrH} \setlength{\hdrH}{3.55cm}
+\newlength{\hdrH} \setlength{\hdrH}{3.9cm}
 \newlength{\padX} \setlength{\padX}{1.8cm}
+\newlength{\photoD} \setlength{\photoD}{2.75cm}
 
 \AddToShipoutPictureFG*{%
   \begin{tikzpicture}[remember picture, overlay]
@@ -67,8 +68,16 @@
     \fill[navy] (current page.north west) rectangle ($(current page.north east)+(0,-4pt)$);
     \draw[navy, line width=1.8pt]
       ($(current page.north west)+(0,-\hdrH)$) -- ($(current page.north east)+(0,-\hdrH)$);
-    \node[anchor=north west, inner sep=10pt, text width=\dimexpr\paperwidth-2\padX\relax]
+    \begin{scope}
+      \clip ($(current page.north east)+(-\padX-\photoD/2,-\hdrH/2)$) circle(\photoD/2);
+      \node at ($(current page.north east)+(-\padX-\photoD/2,-\hdrH/2)$)
+        {\includegraphics[width=\photoD]{profile.png}};
+    \end{scope}
+    \draw[white, line width=1.8pt]
+      ($(current page.north east)+(-\padX-\photoD/2,-\hdrH/2)$) circle(\photoD/2);
+    \node[anchor=north west, inner sep=10pt, text width=\dimexpr\paperwidth-2\padX-\photoD-0.7cm\relax]
       at ($(current page.north west)+(\padX,-4pt-0.16cm)$) {%
+      \normalfont
       {\fontsize{22}{26}\selectfont\bfseries\color{navy} Mohammad Vazir Panah}\\[3pt]
       {\fontsize{10}{13}\selectfont\itshape\color{accent}
         HPC \& Performance Software Engineer \,\textperiodcentered\, C++, SYCL, Compilers}\\[5pt]
@@ -99,7 +108,7 @@
 
 % ============================================================
 \begin{document}
-\vspace*{1.7cm}
+\vspace*{2.05cm}
 
 \section{Summary}
 
@@ -124,21 +133,22 @@ reproducible workflows (Git, Docker, CI, CMake).
 
 \section{Professional Experience}
 
-\cventry{2023 - 2026}
-  {Research Fellow, HPC Group (ISISLab)}
-  {University of Salerno, Department of Computer Science, Salerno, Italy}
+\cventry{Jan 2023 - May 2026}
+  {Research Fellow (Assegno di Ricerca), HPC Group (ISISLab)}
+  {University of Salerno, Department of Computer Science, Salerno, Italy \,\textperiodcentered\, Fixed-term}
   {
-    \item Co-developed an open-source RISC-V benchmark suite (151 TSVC loops and 7 real-world applications, RVV 0.7 and 1.0) and benchmarked GCC, LLVM and LLVM-EPI auto-vectorization on two RISC-V vector boards (AllWinner D1, BananaPi-F3); showed that LMUL tuning gives up to 3$\times$ speedup (IEEE PDP 2025)
+    \item Two fixed-term research contracts (Assegno di Ricerca): Jan 2023 -- Feb 2024 (EuroHPC LIGATE, 13 months) and Feb 2024 -- Oct 2025 (PRIN LibreRT, 20 months), 33 months in total; continued as a research collaborator on publications until May 2026
+    \item Co-developed an open-source RISC-V benchmark suite (151 TSVC loops and 7 real-world applications, RVV 0.7 and 1.0) and benchmarked GCC, LLVM and LLVM-EPI auto-vectorization on two RISC-V vector boards; showed that LMUL tuning gives up to 3$\times$ speedup (IEEE PDP 2025)
     \item Worked on performance-portable SYCL programming (AdaptiveCPP) across embedded CPUs and GPUs in the \href{https://librert.di.unisa.it/}{LibreRT} project; co-author of the system paper (ACM Computing Frontiers 2026)
     \item Debugged kernel dispatch failures on Imagination PowerVR GPUs down to the LLVM-based AdaptiveCPP runtime and fixed the kernel lookup logic; resolved related OpenCL build problems
     \item Implemented and evaluated applications with SYCL, OpenMP and OpenCL on heterogeneous CPU/GPU platforms
-    \item Set up RISC-V toolchains and software stacks on physical boards for the EuroHPC LIGATE project
+    \item Set up and maintained the lab's heterogeneous test platforms for benchmarking: RISC-V vector boards (Allwinner D1 Nezha, Banana Pi BPI-F3, StarFive VisionFive 2) and embedded GPUs (Imagination PowerVR, Arm Mali-G610 on Orange Pi 5 Plus, NVIDIA Ampere on Jetson Orin Nano); toolchains and software stacks for the EuroHPC LIGATE project
     \item Built reproducible benchmarking pipelines with Git, Docker, CI and CMake
   }
 
 \cventry{2020 - 2021}
   {Teaching Assistant}
-  {Shahid Beheshti University, Tehran, Iran}
+  {Shahid Beheshti University, Tehran, Iran \,\textperiodcentered\, Part-time, per-semester contracts}
   {
     \item Advanced Computer Architecture, System-on-Chip, Design \& Analysis of Real-Time Embedded Systems
     \item Ran student projects from environment setup to lab sessions, feedback and grading
@@ -146,7 +156,7 @@ reproducible workflows (Git, Docker, CI, CMake).
 
 \cventry{2013 - 2015}
   {C++ Instructor}
-  {Sepehr Educational Institutions, Kashmar, Iran}
+  {Sepehr Educational Institutions, Kashmar, Iran \,\textperiodcentered\, Part-time, fixed-term}
   {
     \item Taught C++ programming courses
   }
@@ -184,7 +194,7 @@ reproducible workflows (Git, Docker, CI, CMake).
 
 \cventry{2019}
   {Real-Time Tiny YOLO Inference on FPGA}
-  {Intel DE10-Nano-SoC, \href{https://github.com/mohammadvazirpanah/tiny-yolo-fpga-fixed-point}{GitHub}}
+  {Intel FPGA, \href{https://github.com/mohammadvazirpanah/tiny-yolo-fpga-fixed-point}{GitHub}}
   {
     \item Fixed-point CNN inference pipeline on FPGA under tight resource limits
   }

@@ -60,8 +60,9 @@
 \setlength{\footskip}{20pt}
 
 \usepackage{eso-pic}
-\newlength{\hdrH} \setlength{\hdrH}{3.55cm}
+\newlength{\hdrH} \setlength{\hdrH}{3.9cm}
 \newlength{\padX} \setlength{\padX}{1.8cm}
+\newlength{\photoD} \setlength{\photoD}{2.75cm}
 
 \AddToShipoutPictureFG*{%
   \begin{tikzpicture}[remember picture, overlay]
@@ -69,18 +70,27 @@
     \fill[navy] (current page.north west) rectangle ($(current page.north east)+(0,-4pt)$);
     \draw[navy, line width=1.8pt]
       ($(current page.north west)+(0,-\hdrH)$) -- ($(current page.north east)+(0,-\hdrH)$);
-    \node[anchor=north west, inner sep=10pt, text width=\dimexpr\paperwidth-2\padX\relax]
+    \begin{scope}
+      \clip ($(current page.north east)+(-\padX-\photoD/2,-\hdrH/2)$) circle(\photoD/2);
+      \node at ($(current page.north east)+(-\padX-\photoD/2,-\hdrH/2)$)
+        {\includegraphics[width=\photoD]{profile.png}};
+    \end{scope}
+    \draw[white, line width=1.8pt]
+      ($(current page.north east)+(-\padX-\photoD/2,-\hdrH/2)$) circle(\photoD/2);
+    \node[anchor=north west, inner sep=10pt, text width=\dimexpr\paperwidth-2\padX-\photoD-0.7cm\relax]
       at ($(current page.north west)+(\padX,-4pt-0.16cm)$) {%
+      \normalfont
       {\fontsize{22}{26}\selectfont\bfseries\color{navy} Mohammad Vazir Panah}\\[3pt]
       {\fontsize{10}{13}\selectfont\itshape\color{accent}
         Embedded Systems Engineer \,\textperiodcentered\, Embedded Linux, RISC-V, FPGA, C/C++}\\[5pt]
       {\color{rulecol}\rule{\linewidth}{0.4pt}}\\[5pt]
       {\fontsize{8.8}{13}\selectfont\color{midtext}
-        Fisciano (SA), Italy (permitted to work in Italy)
-        \,\textperiodcentered\, \href{tel:+393896646511}{(+39) 389\,664\,6511}
-        \,\textperiodcentered\, \href{mailto:mohammad.vazirpanah@gmail.com}{mohammad.vazirpanah@gmail.com}}\\[3pt]
+        Fisciano (SA), Italy
+        \,\textperiodcentered\, Permitted to work in Italy
+        \,\textperiodcentered\, \href{tel:+393896646511}{(+39) 389\,664\,6511}}\\[3pt]
       {\fontsize{8.8}{13}\selectfont\color{accent}
-        \href{https://www.linkedin.com/in/mohammadvazirpanah}{LinkedIn}
+        \href{mailto:mohammad.vazirpanah@gmail.com}{mohammad.vazirpanah@gmail.com}
+        \,\textperiodcentered\, \href{https://www.linkedin.com/in/mohammadvazirpanah}{LinkedIn}
         \,\textperiodcentered\, \href{https://github.com/mohammadvazirpanah}{GitHub}
         \,\textperiodcentered\, \href{https://mohammadvazirpanah.github.io/}{Website}}%
     };
@@ -101,7 +111,7 @@
 
 % ============================================================
 \begin{document}
-\vspace*{1.7cm}
+\vspace*{2.05cm}
 
 \section{Summary}
 
@@ -116,10 +126,10 @@ international teams.
 
 \begin{shadedtable}{@{}>{\bfseries\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}X@{}}
   Programming & C, C++ (modern C++, templates), Python, Assembly \\
-  Embedded Software & Embedded Linux, FreeRTOS, RISC-V boards (AllWinner D1, BananaPi-F3), board bring-up, SoC architecture \\
+  Embedded Software & Embedded Linux, FreeRTOS, RISC-V boards, board bring-up, SoC architecture \\
   Interfaces \& Debug & UART, SPI, I2C, JTAG, GDB, low-level runtime debugging \\
   Toolchains \& Build & GCC, LLVM/Clang, RISC-V cross-compilation toolchains, CMake \\
-  FPGA \& Digital Design & VHDL, Verilog, Intel FPGA (DE0-Nano, DE10-Nano-SoC), Quartus, ModelSim, Avalon-MM, high-level synthesis (basic) \\
+  FPGA \& Digital Design & VHDL, Verilog, Intel FPGA, Quartus, ModelSim, Avalon-MM, high-level synthesis \\
   Hardware Test & Design for test: full-scan, ATPG, BIST, fault simulation \\
   Parallel \& Heterogeneous & OpenMP, OpenCL, SYCL, CUDA \\
   Simulation \& Modeling & SystemC, Gem5, QEMU, OVPsim, MATLAB/Simulink \\
@@ -129,12 +139,13 @@ international teams.
 
 \section{Professional Experience}
 
-\cventry{2023 - 2026}
-  {Research Fellow, HPC Group (ISISLab)}
-  {University of Salerno, Department of Computer Science, Salerno, Italy}
+\cventry{Jan 2023 - May 2026}
+  {Research Fellow (Assegno di Ricerca), Embedded Systems and HPC, ISISLab}
+  {University of Salerno, Department of Computer Science, Salerno, Italy \,\textperiodcentered\, Fixed-term}
   {
+    \item Two fixed-term research contracts (Assegno di Ricerca): Jan 2023 -- Feb 2024 (EuroHPC LIGATE, 13 months) and Feb 2024 -- Oct 2025 (PRIN LibreRT, 20 months), 33 months in total; continued as a research collaborator on publications until May 2026
+    \item Responsible for the lab's embedded boards: bring-up, Embedded Linux, toolchains and system administration for RISC-V boards (Allwinner D1 Nezha with RVV 0.7, StarFive VisionFive 2, Banana Pi BPI-F3 with RVV 1.0 and PowerVR GPU) Arm platforms (NVIDIA Jetson Orin Nano, Orange Pi 5 Plus with Mali GPU and NPU) and the Raspberry Pi Pico (RP2040) microcontroller
     \item Set up RISC-V cross-compilation toolchains, firmware and Embedded Linux software stacks on physical boards in the EuroHPC \href{https://www.ligateproject.eu/}{LIGATE} project, shared across several partner institutions
-    \item Brought up and evaluated RISC-V boards (AllWinner D1, BananaPi-F3) and embedded SoCs for benchmarking and real-time workloads
     \item Developed and deployed portable real-time applications in C/C++ on heterogeneous embedded CPU/GPU platforms (SYCL, OpenMP, OpenCL) in the \href{https://librert.di.unisa.it/}{LibreRT} project
     \item Found and fixed kernel dispatch failures on Imagination PowerVR embedded GPUs by tracing the issue into the LLVM-based AdaptiveCPP runtime; resolved related OpenCL build problems
     \item Co-developed an open-source \href{https://github.com/unisa-hpc/RISCV-bench}{RISC-V benchmark suite} (151 loops and 7 real applications) to evaluate GCC and LLVM autovectorization on RISC-V vector hardware; tuning alone gave up to 3$\times$ speedup (IEEE PDP 2025)
@@ -143,7 +154,7 @@ international teams.
 
 \cventry{2020 - 2021}
   {Teaching Assistant}
-  {Shahid Beheshti University, Tehran, Iran}
+  {Shahid Beheshti University, Tehran, Iran \,\textperiodcentered\, Part-time, per-semester contracts}
   {
     \item System-on-Chip, Fundamentals of Embedded \& Real-Time Systems, Design \& Analysis of Real-Time Embedded Systems, Advanced Computer Architecture
     \item Ran student FPGA and embedded lab projects from environment setup to lab sessions, feedback and grading
@@ -156,7 +167,7 @@ international teams.
 
 \cventry{2013 - 2015}
   {C++ Instructor and Hardware Intern}
-  {Sepehr Educational Institutions and Abooreyhan Company, Kashmar, Iran}
+  {Sepehr Educational Institutions and Abooreyhan Company, Kashmar, Iran \,\textperiodcentered\, Part-time, fixed-term}
   {
     \item Taught C++ programming courses; diagnosed and repaired PC hardware, assembled and configured systems
   }
@@ -165,7 +176,7 @@ international teams.
 
 \cventry{2019}
   {Real-Time Tiny YOLO Inference and FIR Filter IP Core on FPGA}
-  {Intel DE10-Nano-SoC and DE0-Nano, \href{https://github.com/mohammadvazirpanah/tiny-yolo-fpga-fixed-point}{GitHub}}
+  {Intel FPGA, \href{https://github.com/mohammadvazirpanah/tiny-yolo-fpga-fixed-point}{GitHub}}
   {
     \item Implemented a fixed-point real-time Tiny YOLO v1 object-detection pipeline on FPGA under tight resource limits
     \item Designed a FIR filter IP core in Quartus with an Avalon-MM interface
@@ -175,7 +186,7 @@ international teams.
   {Custom CPU with Full-Scan DFT, BIST and LSSD Self-Test}
   {Verilog, \href{https://github.com/mohammadvazirpanah/cpu-full-scan-dft-bist}{GitHub}}
   {
-    \item Designed a CPU in Verilog and applied scan insertion, fault collapsing and ATPG, reaching 100\% fault coverage after scan insertion
+    \item Designed a CPU in Verilog and applied scan insertion, fault collapsing and ATPG
     \item Built LFSR/MISR-based BIST and LSSD boundary-scan self-test for the same design
   }
 
