@@ -103,7 +103,7 @@
   \IfNonEmptyTF{#4}{\vspace{2pt}\begin{itemize}#4\end{itemize}}{}%
   \vspace{5pt}}
 
-\newenvironment{shadedtable}[1]{\vspace{2pt}\rowcolors{1}{white}{lightbg}\tabularx{\linewidth}{#1}}
+\newenvironment{shadedtable}[1]{\vspace{2pt}\renewcommand{\arraystretch}{1.2}\tabularx{\linewidth}{#1}}
   {\endtabularx\rowcolors{1}{}{}\vspace{4pt}}
 
 % ============================================================
@@ -126,7 +126,7 @@ reproducible workflows (Git, Docker, CI, CMake).
   Compilers & GCC, LLVM/Clang, auto-vectorization analysis, RISC-V Vector extension (RVV 0.7 and 1.0) \\
   Architectures & RISC-V, multicore CPUs, embedded GPUs (Imagination PowerVR), FPGA \\
   Performance Work & Benchmarking, performance portability, performance analysis on real hardware \\
-  Simulation \& Modeling & Gem5, QEMU, SystemC \\
+  Simulation \& Modeling & gem5, QEMU, SystemC \\
   Tools & Git, Docker, CI, CMake, Linux \\
   Certification & \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{TinyML, Harvard University (edX)} \\
 \end{shadedtable}
@@ -142,8 +142,15 @@ reproducible workflows (Git, Docker, CI, CMake).
     \item Worked on performance-portable SYCL programming (AdaptiveCPP) across embedded CPUs and GPUs in the \href{https://librert.di.unisa.it/}{LibreRT} project; co-author of the system paper (ACM Computing Frontiers 2026)
     \item Debugged kernel dispatch failures on Imagination PowerVR GPUs down to the LLVM-based AdaptiveCPP runtime and fixed the kernel lookup logic; resolved related OpenCL build problems
     \item Implemented and evaluated applications with SYCL, OpenMP and OpenCL on heterogeneous CPU/GPU platforms
-    \item Set up and maintained the lab's heterogeneous test platforms for benchmarking: RISC-V vector boards (Allwinner D1 Nezha, Banana Pi BPI-F3, StarFive VisionFive 2) and embedded GPUs (Imagination PowerVR, Arm Mali-G610 on Orange Pi 5 Plus, NVIDIA Ampere on Jetson Orin Nano); toolchains and software stacks for the EuroHPC LIGATE project
+    \item Set up and maintained the lab's heterogeneous test platforms for benchmarking: RISC-V boards (Allwinner D1 Nezha with RVV 0.7, Banana Pi BPI-F3 with RVV 1.0, multi-core StarFive VisionFive 2) and embedded GPUs (Imagination PowerVR, Arm Mali-G610 on Orange Pi 5 Plus, NVIDIA Ampere on Jetson Orin Nano); toolchains and software stacks for the EuroHPC LIGATE project
     \item Built reproducible benchmarking pipelines with Git, Docker, CI and CMake
+  }
+
+\cventry{2020 - 2022}
+  {Python Programming Instructor (Freelance)}
+  {Private online group classes for civil engineering students, Iran \,\textperiodcentered\, Part-time}
+  {
+    \item Taught Python, NumPy, pandas, Matplotlib and SciPy with civil and water engineering examples (irrigation scheduling, water-network layout with minimum spanning trees)
   }
 
 \cventry{2020 - 2021}
@@ -220,10 +227,10 @@ reproducible workflows (Git, Docker, CI, CMake).
   \item \textbf{M.\ Vazir Panah}, S.-H.\ Attarzadeh-Niaki, A.\ Salimi-Badr. \textit{ROS-Based Co-Simulation for Formal Cyber-Physical Robotic System Design.} IEEE CSICC 2022.
 \end{itemize}
 
-\section{Awards}
+\section{Research Grant}
 
 \begin{itemize}
-  \item National R\&D Research Grant, Mobile Telecommunication Company of Iran (2020), awarded in competition with Master's and PhD students
+  \item National R\&D Research Grant, Mobile Telecommunication Company of Iran (2020), awarded in competition with Master's and PhD students; funded my M.Sc.\ thesis research, delivered in four phases with a technical report for each
 \end{itemize}
 
 \section{Languages}

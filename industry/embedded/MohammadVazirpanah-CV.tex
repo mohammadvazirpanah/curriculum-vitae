@@ -106,7 +106,7 @@
   \IfNonEmptyTF{#4}{\vspace{2pt}\begin{itemize}#4\end{itemize}}{}%
   \vspace{5pt}}
 
-\newenvironment{shadedtable}[1]{\vspace{2pt}\rowcolors{1}{white}{lightbg}\tabularx{\linewidth}{#1}}
+\newenvironment{shadedtable}[1]{\vspace{2pt}\renewcommand{\arraystretch}{1.0}\tabularx{\linewidth}{#1}}
   {\endtabularx\rowcolors{1}{}{}\vspace{4pt}}
 
 % ============================================================
@@ -132,7 +132,7 @@ international teams.
   FPGA \& Digital Design & VHDL, Verilog, Intel FPGA, Quartus, ModelSim, Avalon-MM, high-level synthesis \\
   Hardware Test & Design for test: full-scan, ATPG, BIST, fault simulation \\
   Parallel \& Heterogeneous & OpenMP, OpenCL, SYCL, CUDA \\
-  Simulation \& Modeling & SystemC, Gem5, QEMU, OVPsim, MATLAB/Simulink \\
+  Simulation \& Modeling & SystemC, gem5, QEMU, OVPsim, MATLAB/Simulink \\
   Tools & Git, Docker, CI, Linux \\
   Certification & \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{TinyML, Harvard University (edX)} \\
 \end{shadedtable}
@@ -150,6 +150,13 @@ international teams.
     \item Found and fixed kernel dispatch failures on Imagination PowerVR embedded GPUs by tracing the issue into the LLVM-based AdaptiveCPP runtime; resolved related OpenCL build problems
     \item Co-developed an open-source \href{https://github.com/unisa-hpc/RISCV-bench}{RISC-V benchmark suite} (151 loops and 7 real applications) to evaluate GCC and LLVM autovectorization on RISC-V vector hardware; tuning alone gave up to 3$\times$ speedup (IEEE PDP 2025)
     \item Built reproducible build and test pipelines (Git, Docker, CI, CMake) for RISC-V and SoC boards
+  }
+
+\cventry{2020 - 2022}
+  {Python Programming Instructor (Freelance)}
+  {Private online group classes for civil engineering students, Iran \,\textperiodcentered\, Part-time}
+  {
+    \item Taught Python, NumPy, pandas, Matplotlib and SciPy with civil and water engineering examples (irrigation scheduling, water-network layout with minimum spanning trees)
   }
 
 \cventry{2020 - 2021}
@@ -233,10 +240,10 @@ international teams.
   \item \textbf{M.\ Vazir Panah}, S.-H.\ Attarzadeh-Niaki, A.\ Salimi-Badr. \textit{ROS-Based Co-Simulation for Formal Cyber-Physical Robotic System Design.} IEEE CSICC 2022.
 \end{itemize}
 
-\section{Awards}
+\section{Research Grant}
 
 \begin{itemize}
-  \item National R\&D Research Grant, Mobile Telecommunication Company of Iran (2020), awarded in competition with Master's and PhD students
+  \item National R\&D Research Grant, Mobile Telecommunication Company of Iran (2020), awarded in competition with Master's and PhD students; funded my M.Sc.\ thesis
 \end{itemize}
 
 \section{Languages}

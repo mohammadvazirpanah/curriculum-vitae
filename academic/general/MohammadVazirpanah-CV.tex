@@ -253,14 +253,21 @@ pdfauthor  = {Mohammad Vazir Panah}
 	{\textbf{University of Salerno}, Dept. of Computer Science, ISISLab, Salerno, Italy \textperiodcentered\ Fixed-term}
 	{
 		\item Scientific Responsible: Prof. Biagio Cosenza
-		\item Two fixed-term research contracts (Assegno di Ricerca): Jan 2023 -- Feb 2024 (EuroHPC LIGATE, 13 months) and Feb 2024 -- Oct 2025 (PRIN LibreRT, 20 months), 33 months in total; continued as a research collaborator on publications until May 2026
-		\item Responsible for the lab's embedded boards: bring-up, Embedded Linux, toolchains and system administration for RISC-V boards (Allwinner D1 Nezha with RVV 0.7, StarFive VisionFive 2, Banana Pi BPI-F3 with RVV 1.0 and PowerVR GPU), Arm platforms (NVIDIA Jetson Orin Nano, Orange Pi 5 Plus with Mali GPU and NPU) and the Raspberry Pi Pico (RP2040) microcontroller
-		\item Research bridging real-time embedded systems and high-performance heterogeneous computing across the RISC-V computing continuum, from embedded cores to HPC vector processors
-		\item Contributed to \href{https://librert.di.unisa.it/}{LibreRT}: developing and deploying portable real-time applications across heterogeneous embedded CPU/GPU platforms (SYCL, OpenMP, OpenCL)
-		\item EuroHPC LIGATE project: set up RISC-V toolchains, firmware and embedded software stacks on physical boards shared across partner institutions
-		\item Fixed SYCL/AdaptiveCPP kernel dispatch failures on Imagination PowerVR embedded GPUs by tracing them into the LLVM-based runtime
-		\item Benchmarked GCC, LLVM, and LLVM-EPI auto-vectorization for the RISC-V Vector Extension (RVV 0.7 \& 1.0) across 151 TSVC loops and seven real-world applications on two RISC-V vector boards; showed LMUL tuning yields up to 3$\times$ speedup and characterized per-pattern compiler limitations. Published at IEEE PDP 2025 (2nd author)
-		\item Built reproducible experiment pipelines (Git, Docker, CI, CMake) for RISC-V/SoC boards; documented setups for reproducibility
+		\item Two research contracts (Assegno di Ricerca): EuroHPC \href{https://www.ligateproject.eu/}{LIGATE} (Jan 2023 -- Feb 2024) and PRIN \href{https://librert.di.unisa.it/}{LibreRT} (Feb 2024 -- Oct 2025), 33 months in total; research collaborator on publications until May 2026
+		\item \textbf{LIGATE:} set up RISC-V toolchains, firmware and Embedded Linux software stacks on boards shared across partner institutions; responsible for the lab's embedded boards: RISC-V (Allwinner D1 Nezha with RVV 0.7, Banana Pi BPI-F3 with RVV 1.0, multi-core StarFive VisionFive 2), Arm with GPUs and NPU (Jetson Orin Nano, Orange Pi 5 Plus) and the Raspberry Pi Pico (RP2040)
+		\item \textbf{LibreRT:} ported real-time applications to heterogeneous embedded CPU/GPU platforms with SYCL, OpenMP and OpenCL; fixed SYCL/AdaptiveCpp kernel dispatch failures on PowerVR GPUs by tracing them into the LLVM-based runtime
+		\item Benchmarked GCC and LLVM auto-vectorization for RISC-V Vector (RVV 0.7 \& 1.0) on 151 TSVC loops and 7 applications; up to 3$\times$ speedup from LMUL tuning (IEEE PDP 2025)
+		\item Built reproducible experiment pipelines (Git, Docker, CI, CMake) for the lab's embedded boards
+
+	}
+	
+	\cventry{2020 - 2022}
+	{Python Programming Instructor (Freelance)}
+	{Private online group classes for civil engineering students, Iran \textperiodcentered\ Part-time}
+	{
+		\item Taught Python from the basics to object-oriented programming, with NumPy, pandas, Matplotlib and SciPy for engineering data analysis
+		\item Built course examples from civil and water engineering, such as irrigation scheduling from crop water requirements and water-network layout with minimum spanning trees (Prim's algorithm)
+		\item Also covered GUIs (Tkinter) and databases (MySQL, MongoDB)
 	}
 	
 	\cventry{2013 - 2015}
@@ -406,44 +413,40 @@ pdfauthor  = {Mohammad Vazir Panah}
 
 \section{Technical Skills}
 	
-	\begin{shadedtable}{@{}>{\bfseries\raggedright\arraybackslash}m{5.4cm} >{\raggedright\arraybackslash}m{\dimexpr\linewidth-5.4cm-2\tabcolsep\relax}@{}}
-		Programming & C, C++, Python, Assembly \\
-		Hardware \& Embedded Systems & RISC-V, FPGA, VHDL, Verilog, FreeRTOS, high-level synthesis (basic) \\
-		Hardware Test \& Reliability & Design for test: full-scan, ATPG, fault collapsing, BIST, LSSD \\
-		Simulation \& EDA & Gem5, QEMU, OVPsim, Quartus, ModelSim, MATLAB-Simulink \\
-		Modeling \& Verification & SystemC, SystemC-AMS, NuSMV, UPPAAL \\
-		Methods \& Concepts & Real-time \& Embedded systems, Hardware/Software Co-Design, Parallel \& Vector Computing, Performance Portability, Formal Verification \& Model Checking \\
-		Heterogeneous \& HPC & SYCL, OpenMP, OpenCL, CUDA \\
-		Robotics & ROS, Gazebo, Sensor Integration \\
-		Tools & Git, Docker, Linux, CMake, \LaTeX \\
-		Machine Learning \& AI & Machine learning fundamentals (self-study, 2026, ongoing), CNN inference on FPGA (Tiny YOLO), TinyML \\
-		Certifications & TinyML, \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{Harvard University, edX} \\
-	\end{shadedtable}
+	\vspace{2pt}
+	{\renewcommand{\arraystretch}{1.25}
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}X@{}}
+		Programming & C, C++ (modern C++, templates), Python, Assembly \\
+		Hardware \& Embedded & RISC-V, FPGA, VHDL, Verilog, FreeRTOS, Embedded Linux, HLS (basic) \\
+		Hardware Test & Design for test: full-scan, ATPG, fault collapsing, BIST, LSSD \\
+		Simulation \& EDA & gem5, QEMU, OVPsim, Quartus, ModelSim, MATLAB/Simulink \\
+		Modeling \& Verification & SystemC, SystemC-AMS, NuSMV, UPPAAL, ROS, Gazebo \\
+		Parallel \& HPC & SYCL (AdaptiveCpp), OpenMP, OpenCL, CUDA \\
+		Machine Learning & CNN inference on FPGA (Tiny YOLO), TinyML, machine learning fundamentals (self-study, ongoing) \\
+		Tools & Linux, Git, Docker, CMake, \LaTeX \\
+		Certification & \href{https://www.edx.org/learn/machine-learning/harvard-university-fundamentals-of-tinyml}{TinyML, Harvard University (edX)} \\
+	\end{tabularx}}
+	\vspace{4pt}
 	
 %	\vspace{1cm}
-	\section{Honours and Awards}
+	\section{Research Grants}
 	
 	\cventry{2020 - 2021}
-	{National R\&D Research Grant Winner}
+	{National R\&D Research Grant}
 	{R\&D Center, Mobile Telecommunication Company of Iran (MCI)}
 	{
 		\item Awarded among competing Master's and PhD students in a national grant competition
-	}
-	
-	\cventry{2016}
-	{Top Computer Engineering Student}
-	{Birjand University}
-	{
-		\item Ranked in the top 15\% of B.Sc. Computer Engineering graduates
+		\item The grant funded my M.Sc.\ thesis research; I planned the work in four phases and delivered a technical report for each phase to the MCI R\&D Center
+		\item Outcome: the SADF modeling framework in ForSyDe-SystemC and two publications (IEEE CSICC 2022, JICSE 2023)
 	}
 	
 	\section{Conference Participation}
 	
 	\cventry{Mar 2025}
 	{33rd Euromicro International Conference on Parallel, Distributed, and Network-Based Processing (PDP)}
-	{Co-author and attendee, Turin, Italy}
+	{Presenter, Turin, Italy}
 	{
-		\item Co-author of the paper: \textit{A Performance Analysis of Autovectorization on RVV RISC-V Boards}
+		\item Presented the paper: \textit{A Performance Analysis of Autovectorization on RVV RISC-V Boards}
 		
 	}
 	
